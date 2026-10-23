@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HostelOS — Hostel Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark"><span>H</span></div><div><strong>HostelOS</strong><small>HOSTEL MANAGEMENT</small></div></div>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list" id="navigation">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span> Dashboard</button>
+        <button class="nav-item" data-page="students"><span class="nav-icon">♙</span> Students</button>
+        <button class="nav-item" data-page="rooms"><span class="nav-icon">▤</span> Rooms & Beds</button>
+        <button class="nav-item" data-page="passes"><span class="nav-icon">↗</span> Pass management <span class="nav-count" id="pendingBadge">0</span></button>
+        <button class="nav-item" data-page="movement"><span class="nav-icon">⌖</span> Live movement</button>
+        <button class="nav-item" data-page="attendance"><span class="nav-icon">✓</span> Attendance</button>
+        <button class="nav-item" data-page="events"><span class="nav-icon">▣</span> Events</button>
+        <button class="nav-item" data-page="alerts"><span class="nav-icon">♧</span> Alerts <span class="nav-count danger" id="alertBadge">0</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><div class="help-icon">✦</div><strong>Need a hand?</strong><p>Manage your hostel from one simple workspace.</p><button id="helpBtn">Quick guide <span>↗</span></button></div>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span> Settings</button>
+        <div class="profile"><div class="avatar">WA</div><div class="profile-text"><strong>Warden Admin</strong><small>Administrator</small></div><button id="resetBtn" title="Reset demo data">⋯</button></div>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumbTitle">Dashboard</strong></div>
+        <div class="top-actions"><div class="search-wrap"><span>⌕</span><input id="globalSearch" placeholder="Search students, rooms..." autocomplete="off"></div><button class="icon-button" id="topAlerts" title="View alerts">♧<i id="topAlertDot"></i></button><div class="top-avatar">WA</div></div>
+      </header>
+      <section class="page-content" id="pageContent"></section>
+      <footer class="footer"><span>HostelOS · Admin workspace</span><span>Demo build <b>•</b> Data stays in this browser</span></footer>
+    </main>
+  </div>
+  <div class="toast-region" id="toastRegion"></div>
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"><div class="modal" id="modal" role="dialog" aria-modal="true"><div class="modal-head"><div><h2 id="modalTitle">Add record</h2><p id="modalSubtitle">Enter the details below.</p></div><button class="close-modal" id="closeModal" aria-label="Close">×</button></div><form id="modalForm"><div class="modal-body" id="modalBody"></div><div class="modal-footer"><button type="button" class="btn btn-ghost" id="cancelModal">Cancel</button><button type="submit" class="btn btn-primary" id="saveModal">Save changes</button></div></form></div></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
